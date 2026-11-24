@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="midnight">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DBS Bank | Enterprise Architecture & Core Modernisation</title>
+<meta name="description" content="An executive-ready summary of the DBS enterprise architecture and core systems modernisation strategy, grounded in the uploaded 2026 consulting report.">
+<style>
+:root{--bg:#0b1422;--surface:#121f31;--surface2:#192a40;--paper:#f3f5f7;--ink:#edf3f8;--muted:#aebccc;--line:#2c4058;--accent:#69d0bc;--accent2:#83aaf9;--gold:#e3bf79;--red:#ed8a88;--soft:#233b50;--shadow:0 16px 48px rgba(0,0,0,.18);--radius:20px;--serif:Georgia,'Times New Roman',serif;--sans:Inter,ui-sans-serif,system-ui,-apple-system,'Segoe UI',Arial,sans-serif}
+html[data-theme="paper"]{--bg:#f3f2ed;--surface:#fffefa;--surface2:#e9e8df;--paper:#fffefa;--ink:#1e2935;--muted:#5c6872;--line:#d5d6d0;--accent:#126b63;--accent2:#315f9c;--gold:#9a6d22;--red:#a94c4b;--soft:#e4e7e0;--shadow:0 14px 40px rgba(26,35,43,.08)}
+html[data-theme="blueprint"]{--bg:#eaf1f8;--surface:#f8fbff;--surface2:#dce8f4;--paper:#f8fbff;--ink:#102a43;--muted:#4c657c;--line:#c2d2e2;--accent:#087f8c;--accent2:#3869b2;--gold:#a97825;--red:#b65055;--soft:#d9e7f4;--shadow:0 14px 40px rgba(21,54,84,.08)}
+html[data-theme="plum"]{--bg:#1e1827;--surface:#2a2137;--surface2:#392b48;--paper:#f7f2f8;--ink:#f7eff9;--muted:#c7b8ce;--line:#4b3d59;--accent:#c7a0e8;--accent2:#8fc8e9;--gold:#e6c18a;--red:#f09a9e;--soft:#3a2d49;--shadow:0 16px 48px rgba(0,0,0,.2)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.58;transition:background .2s,color .2s}a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}.shell{max-width:1280px;margin:auto;padding:0 28px}.topbar{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}.topbar-inner{height:68px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:12px;font-weight:750;letter-spacing:.03em}.brand-mark{width:34px;height:34px;border-radius:10px;background:var(--accent);color:#08212a;display:grid;place-items:center;font-weight:900;font-size:15px}.brand small{display:block;color:var(--muted);font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase}.nav-actions{display:flex;align-items:center;gap:8px}.theme-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;margin-right:4px}.theme-btn,.action-btn{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:9px 13px;font:600 12px var(--sans);cursor:pointer}.theme-btn[aria-pressed="true"]{border-color:var(--accent);color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}.action-btn.primary{background:var(--accent);border-color:var(--accent);color:#07232b}.menu-toggle{display:none}.hero{padding:74px 0 40px;position:relative;overflow:hidden}.hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:46px;align-items:center}.eyebrow{color:var(--accent);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.2em}.hero h1{font:500 clamp(42px,5vw,66px)/1.03 var(--serif);letter-spacing:-.035em;max-width:760px;margin:18px 0}.hero h1 em{color:var(--accent);font-style:normal}.hero .dek{font-size:17px;color:var(--muted);max-width:740px;line-height:1.65}.hero-meta{display:flex;flex-wrap:wrap;gap:8px;margin:25px 0}.pill{border:1px solid var(--line);border-radius:999px;padding:7px 11px;color:var(--muted);font-size:11px;font-weight:650;letter-spacing:.02em}.hero-graphic{background:linear-gradient(145deg,var(--surface2),var(--surface));border:1px solid var(--line);border-radius:28px;padding:24px;box-shadow:var(--shadow);min-height:365px;display:flex;flex-direction:column;justify-content:space-between}.graphic-top{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.15em}.pulse{height:8px;width:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 18px var(--accent)}.hero-stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:15px}.hero-stat{padding:13px;background:var(--surface);border:1px solid var(--line);border-radius:14px}.hero-stat b{display:block;color:var(--accent);font:500 24px var(--serif)}.hero-stat span{font-size:10px;color:var(--muted)}.section{padding:60px 0;border-top:1px solid var(--line);scroll-margin-top:88px}.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:28px}.section-num{font-size:11px;color:var(--accent);letter-spacing:.17em;text-transform:uppercase;font-weight:800}.section h2{font:500 clamp(29px,3.5vw,43px)/1.12 var(--serif);letter-spacing:-.025em;margin:7px 0 0}.section-intro{max-width:520px;color:var(--muted);font-size:14px;margin:0}.lead{font-size:17px;line-height:1.7;max-width:900px;color:var(--muted)}.grid{display:grid;gap:16px}.grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}.grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}.grid.four{grid-template-columns:repeat(4,minmax(0,1fr))}.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:21px;box-shadow:var(--shadow)}.card h3{font:600 19px/1.25 var(--serif);margin:0 0 9px}.card p{margin:0;color:var(--muted);font-size:13px}.kpi-card .value{font:500 34px/1.1 var(--serif);color:var(--accent);margin-bottom:8px}.kpi-card .label{font-size:12px;color:var(--muted)}.kpi-card .detail{font-size:11px;color:var(--muted);margin-top:10px}.tag{display:inline-block;border:1px solid var(--line);padding:4px 8px;border-radius:999px;color:var(--muted);font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}.tag.fact{color:var(--accent);border-color:color-mix(in srgb,var(--accent) 45%,var(--line))}.tag.assumption{color:var(--gold);border-color:color-mix(in srgb,var(--gold) 45%,var(--line))}.tag.gap{color:var(--red);border-color:color-mix(in srgb,var(--red) 45%,var(--line))}.callout{border-left:3px solid var(--accent);padding:16px 19px;background:var(--surface2);border-radius:0 14px 14px 0;color:var(--ink);margin:22px 0}.callout strong{color:var(--accent)}.statband{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:26px 0}.statband .item{border-top:2px solid var(--accent);padding:13px 10px 9px;background:var(--surface);border-radius:0 0 12px 12px}.statband b{font:500 25px var(--serif);display:block}.statband span{display:block;color:var(--muted);font-size:11px}.timeline{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;align-items:stretch;margin:24px 0}.time-step{border:1px solid var(--line);background:var(--surface);border-radius:15px;padding:14px;position:relative}.time-step:not(:last-child):after{content:'›';position:absolute;right:-9px;top:42%;z-index:2;background:var(--bg);color:var(--accent);font-size:20px;font-weight:800}.time-step b{display:block;color:var(--accent);font-size:11px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}.time-step span{font-size:12px;color:var(--muted)}.diagram{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:20px;margin:22px 0;overflow:hidden}.diagram-title{font-size:11px;text-transform:uppercase;color:var(--muted);letter-spacing:.15em;margin-bottom:14px}.diagram svg{width:100%;height:auto;display:block}.diagram-caption{font-size:11px;color:var(--muted);margin:12px 3px 0}.layers{display:grid;gap:8px}.layer{display:grid;grid-template-columns:155px 1fr 170px;gap:12px;align-items:center;padding:13px 15px;background:var(--surface);border:1px solid var(--line);border-radius:13px}.layer .name{font-weight:750;font-size:12px;color:var(--accent)}.layer .desc{font-size:12px;color:var(--muted)}.layer .controls{font-size:10px;color:var(--gold);text-align:right}.two-col-note{display:grid;grid-template-columns:1fr 1fr;gap:14px}.note-box{padding:18px;border-radius:16px;background:var(--surface);border:1px solid var(--line)}.note-box h3{margin:0 0 7px;font:600 18px var(--serif)}.note-box p{margin:0;color:var(--muted);font-size:13px}.note-box.good{border-top:3px solid var(--accent)}.note-box.warn{border-top:3px solid var(--gold)}.option-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.option{padding:17px;background:var(--surface);border:1px solid var(--line);border-radius:16px}.option b{color:var(--accent);font-size:12px;text-transform:uppercase;letter-spacing:.08em}.option h3{font:600 18px var(--serif);margin:8px 0}.option p{color:var(--muted);font-size:12px;margin:0}.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:16px;margin:18px 0;background:var(--surface)}table{width:100%;border-collapse:collapse;min-width:650px;font-size:12px}th{font-size:10px;color:var(--accent);text-align:left;text-transform:uppercase;letter-spacing:.09em;background:var(--surface2)}th,td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}td{color:var(--muted)}td strong{color:var(--ink)}tr:last-child td{border-bottom:0}.bars{display:grid;gap:15px;margin:18px 0}.bar-row{display:grid;grid-template-columns:145px 1fr 78px;gap:10px;align-items:center;font-size:12px}.bar-track{height:12px;background:var(--surface2);border-radius:99px;overflow:hidden}.bar-fill{height:100%;border-radius:99px;background:var(--accent)}.bar-fill.alt{background:var(--accent2)}.bar-fill.gold{background:var(--gold)}.bar-value{text-align:right;font-weight:750}.architecture{display:grid;gap:7px}.arch-row{display:grid;grid-template-columns:130px 1fr 155px;gap:12px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px}.arch-row .layer-name{font-size:11px;color:var(--accent);font-weight:800;text-transform:uppercase}.arch-row .layer-content{font-size:12px}.arch-row .layer-purpose{font-size:10px;color:var(--muted);text-align:right}.cross-cut{background:var(--surface2);border:1px dashed var(--accent);border-radius:12px;padding:12px 15px;text-align:center;color:var(--accent);font-size:11px;font-weight:750;letter-spacing:.04em}.strategy-flow{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.strategy-flow .flow-card{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:16px;position:relative}.flow-card .step{font-size:10px;color:var(--accent);font-weight:800;letter-spacing:.12em}.flow-card h3{font:600 18px var(--serif);margin:7px 0}.flow-card p{font-size:12px;color:var(--muted);margin:0}.roadmap{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.wave{border:1px solid var(--line);border-radius:17px;background:var(--surface);padding:17px}.wave .duration{font-size:10px;color:var(--accent);text-transform:uppercase;font-weight:800;letter-spacing:.1em}.wave h3{font:600 18px var(--serif);margin:8px 0}.wave p{font-size:12px;color:var(--muted)}.gate{border-top:1px solid var(--line);margin-top:12px;padding-top:10px;font-size:11px;color:var(--gold)}.risk-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.risk{padding:16px 18px;border:1px solid var(--line);background:var(--surface);border-radius:14px}.risk b{display:block;font-size:13px;margin-bottom:5px}.risk span{font-size:12px;color:var(--muted)}.decision{counter-increment:decision;display:grid;grid-template-columns:42px 1fr;gap:12px;padding:16px 0;border-bottom:1px solid var(--line)}.decision:before{content:counter(decision,decimal-leading-zero);font:500 20px var(--serif);color:var(--accent)}.decisions{counter-reset:decision}.decision strong{display:block;margin-bottom:3px}.decision p{margin:0;color:var(--muted);font-size:12px}.endcap{padding:36px;background:var(--surface);border:1px solid var(--line);border-radius:24px}.endcap h2{font:500 33px var(--serif);margin:5px 0 14px}.endcap p{color:var(--muted);max-width:900px}.source-note{font-size:11px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px;margin-top:25px}.footer{padding:35px 0 50px;color:var(--muted);font-size:11px;border-top:1px solid var(--line);margin-top:50px}.backtop{position:fixed;bottom:22px;right:22px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:11px 14px;border-radius:999px;box-shadow:var(--shadow);font-size:12px}.toc{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 0}.toc a{border:1px solid var(--line);padding:7px 10px;border-radius:999px;font-size:11px;color:var(--muted)}.toc a:hover{color:var(--accent);border-color:var(--accent);text-decoration:none}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-graphic{min-height:300px}.grid.four{grid-template-columns:repeat(2,1fr)}.roadmap{grid-template-columns:repeat(2,1fr)}.timeline{grid-template-columns:repeat(3,1fr)}.option-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.shell{padding:0 16px}.topbar-inner{height:60px}.brand small{display:none}.theme-label{display:none}.theme-btn{padding:8px 10px;font-size:10px}.action-btn{display:none}.hero{padding:48px 0 30px}.hero h1{font-size:42px}.hero .dek{font-size:15px}.hero-stat-row{grid-template-columns:1fr 1fr 1fr}.hero-stat b{font-size:20px}.section{padding:42px 0}.section-head{display:block}.section-intro{margin-top:12px}.grid.two,.grid.three,.grid.four,.two-col-note,.risk-grid{grid-template-columns:1fr}.statband{grid-template-columns:repeat(2,1fr)}.timeline{grid-template-columns:1fr 1fr}.time-step:not(:last-child):after{display:none}.option-grid,.strategy-flow{grid-template-columns:1fr}.roadmap{grid-template-columns:1fr}.layer,.arch-row{grid-template-columns:1fr;gap:5px}.layer .controls,.arch-row .layer-purpose{text-align:left}.bar-row{grid-template-columns:100px 1fr 65px}.backtop{bottom:12px;right:12px}.toc{gap:6px}.toc a{font-size:10px;padding:6px 8px}}
+/* PRINT / PDF */
+@page{size:A4;margin:15mm 15mm 16mm 15mm}
+@media print{
+  :root{--bg:#fff;--surface:#fff;--surface2:#f1f4f6;--paper:#fff;--ink:#142333;--muted:#526171;--line:#cbd4dc;--accent:#176f68;--accent2:#355f97;--gold:#8b6626;--red:#9c4849;--soft:#edf2f4;--shadow:none}
+  html,body{background:#fff!important;color:#142333!important;font-size:10pt;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .topbar,.backtop,.nav-actions,.toc{display:none!important}.shell{max-width:none;padding:0}.hero{padding:12mm 0 7mm}.hero-grid{grid-template-columns:1fr 0.78fr;gap:8mm}.hero h1{font-size:34pt}.hero .dek{font-size:11pt}.hero-graphic{min-height:0;box-shadow:none;padding:13px;border-radius:14px}.hero-stat b{font-size:18pt}.section{padding:8mm 0 4mm;break-before:page;border-top:0}.section:first-of-type{break-before:auto}.section-head{margin-bottom:5mm}.section h2{font-size:24pt}.section-intro,.lead{font-size:10pt}.card,.diagram,.wave,.option,.risk,.note-box,.endcap,.hero-graphic{box-shadow:none;break-inside:avoid}.grid{gap:8px}.card{padding:13px;border-radius:12px}.card h3{font-size:15pt}.card p{font-size:9pt}.kpi-card .value{font-size:24pt}.diagram{padding:12px;margin:12px 0}.diagram svg{max-height:230px}.diagram-caption{font-size:8pt}.layers{gap:5px}.layer{padding:8px 10px;grid-template-columns:120px 1fr 140px}.layer .desc{font-size:8.5pt}.layer .controls{font-size:8pt}.arch-row{padding:8px 10px;grid-template-columns:110px 1fr 125px}.arch-row .layer-content{font-size:8.5pt}.arch-row .layer-purpose{font-size:8pt}.table-wrap{break-inside:avoid}table{font-size:8pt;min-width:0}th,td{padding:7px 8px}.table-wrap table{width:100%}.statband{gap:6px}.statband .item{padding:9px}.statband b{font-size:18pt}.timeline{gap:6px}.time-step{padding:9px}.time-step span{font-size:8.5pt}.option-grid{gap:7px}.option{padding:11px}.option h3{font-size:14pt}.option p,.wave p,.risk span,.decision p{font-size:8.5pt}.roadmap{gap:7px}.wave{padding:11px}.wave h3{font-size:14pt}.bar-row{font-size:9pt}.section .grid,.section .diagram,.section .callout{break-inside:avoid}.decision{padding:10px 0}.endcap{padding:22px}.endcap h2{font-size:24pt}.source-note{font-size:8pt}.footer{display:none}
+  .chapter-two-up{display:grid;grid-template-columns:1fr 1fr;gap:9px}.no-break{break-inside:avoid}.page-label{display:block;font-size:8pt;color:#607182;text-transform:uppercase;letter-spacing:.14em;margin-bottom:6px}
+}
+</style>
+</head>
+<body>
+<header class="topbar" id="top">
+  <div class="shell topbar-inner">
+    <div class="brand"><div class="brand-mark">D</div><div>DBS / TECHNOLOGY STRATEGY<small>Enterprise architecture brief</small></div></div>
+    <div class="nav-actions" aria-label="Website controls">
+      <span class="theme-label">Theme</span>
+      <button class="theme-btn" data-theme-choice="midnight" aria-pressed="true">Midnight</button>
+      <button class="theme-btn" data-theme-choice="paper" aria-pressed="false">Paper</button>
+      <button class="theme-btn" data-theme-choice="blueprint" aria-pressed="false">Blueprint</button>
+      <button class="theme-btn" data-theme-choice="plum" aria-pressed="false">Plum</button>
+      <a class="action-btn primary" href="dbs_enterprise_architecture_summary.pdf" download>Download PDF ↓</a>
+    </div>
+  </div>
+</header>
+<main>
+<section class="hero shell">
+ <div class="hero-grid">
+  <div>
+   <div class="eyebrow">Enterprise architecture · Core modernisation · Operational resilience</div>
+   <h1>Modernise the bank.<br><em>Protect the promise.</em></h1>
+   <p class="dek">A business-led strategy for evolving DBS Bank's application estate, mainframe workloads and regional platforms without compromising payment integrity, customer trust or regulatory resilience.</p>
+   <div class="hero-meta"><span class="pill">Prepared for CIO / CTO / Board Technology Committee</span><span class="pill">Primary market: Singapore</span><span class="pill">Data vintage: November 2026</span></div>
+   <div class="toc"><a href="#thesis">Executive thesis</a><a href="#architecture">Target architecture</a><a href="#mainframe">Mainframe strategy</a><a href="#businesscase">Business case</a><a href="#roadmap">Roadmap</a></div>
+  </div>
+  <div class="hero-graphic">
+   <div class="graphic-top"><span>Transformation north star</span><span class="pulse"></span></div>
+   <svg viewBox="0 0 520 250" role="img" aria-label="Diagram showing a stable ledger core surrounded by modern channels and services">
+    <defs><linearGradient id="g1" x1="0" x2="1"><stop stop-color="#69d0bc"/><stop offset="1" stop-color="#83aaf9"/></linearGradient></defs>
+    <circle cx="260" cy="125" r="98" fill="none" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="4 7"/>
+    <circle cx="260" cy="125" r="69" fill="none" stroke="url(#g1)" stroke-width="2" opacity=".8"/>
+    <rect x="190" y="89" width="140" height="72" rx="16" fill="var(--surface2)" stroke="var(--accent)" stroke-width="2"/>
+    <text x="260" y="117" fill="var(--ink)" text-anchor="middle" font-size="13" font-weight="700">CORE LEDGER</text><text x="260" y="137" fill="var(--muted)" text-anchor="middle" font-size="10">stable · authoritative</text>
+    <g fill="var(--surface2)" stroke="var(--line)" stroke-width="1.4"><rect x="14" y="31" width="122" height="42" rx="11"/><rect x="384" y="31" width="122" height="42" rx="11"/><rect x="14" y="177" width="122" height="42" rx="11"/><rect x="384" y="177" width="122" height="42" rx="11"/></g>
+    <g fill="var(--ink)" font-size="10" font-weight="700" text-anchor="middle"><text x="75" y="56">DIGITAL CHANNELS</text><text x="445" y="56">API / EVENTS</text><text x="75" y="202">DATA &amp; CDC</text><text x="445" y="202">HYBRID CLOUD</text></g>
+    <g stroke="url(#g1)" stroke-width="2" fill="none"><path d="M136 52 L196 99"/><path d="M384 52 L324 99"/><path d="M136 198 L196 151"/><path d="M384 198 L324 151"/></g>
+    <g fill="var(--accent)"><circle cx="166" cy="76" r="3"/><circle cx="354" cy="76" r="3"/><circle cx="166" cy="174" r="3"/><circle cx="354" cy="174" r="3"/></g>
+    <text x="260" y="18" fill="var(--muted)" font-size="9" text-anchor="middle" letter-spacing="2">CONTROLLED COEXISTENCE</text>
+    <text x="260" y="244" fill="var(--muted)" font-size="9" text-anchor="middle" letter-spacing="1.2">DECOUPLE AROUND THE LEDGER - NOT THROUGH IT</text>
+   </svg>
+   <div class="hero-stat-row">
+    <div class="hero-stat"><b>SGD 22.9B</b><span>FY2025 total income</span></div>
+    <div class="hero-stat"><b>17.0%</b><span>9M 2026 ROE</span></div>
+    <div class="hero-stat"><b>1.5x</b><span>MAS op-risk multiplier</span></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="section shell" id="thesis">
+ <div class="section-head"><div><div class="section-num">01 / Executive thesis</div><h2>The issue is coexistence, not a broken bank.</h2></div><p class="section-intro">DBS has already built a sophisticated digital and AI-enabled operating model. The next challenge is governing how legacy cores, distributed services and regional platforms evolve together.</p></div>
+ <p class="lead">The proposed strategy is to modernise business capabilities in controlled increments while keeping authoritative ledgers stable. It makes application and workload decisions from business criticality, dependency evidence, change velocity and recovery tolerance - not from a blanket preference for cloud or microservices.</p>
+ <div class="grid four">
+  <div class="card kpi-card"><div class="value">SGD 22.9B</div><div class="label">FY2025 record total income</div><div class="detail"><span class="tag fact">Published</span> DBS Annual Report 2025</div></div>
+  <div class="card kpi-card"><div class="value">SGD 8.82B</div><div class="label">9M 2026 net profit</div><div class="detail">17.0% return on equity</div></div>
+  <div class="card kpi-card"><div class="value">1.8x → 1.5x</div><div class="label">MAS operational-risk multiplier</div><div class="detail">Reduced on 4 November 2026</div></div>
+  <div class="card kpi-card"><div class="value">19 markets</div><div class="label">Regional operating footprint</div><div class="detail">Singapore is the reference architecture market</div></div>
+ </div>
+ <div class="callout"><strong>The strategic tension:</strong> moving from monolithic mainframes to distributed services can increase the number of dependencies, network hops and failure paths before it reduces structural risk. Service decoupling, runtime observability, automated reconciliation and change governance must be built into the migration itself.</div>
+ <div class="two-col-note">
+  <div class="note-box good"><h3>What is working</h3><p>DBS has established a Board Technology Committee, Tech Future Town and the R.I.S.E. framework; it also reports mature digital engineering, AI industrialisation and a multi-year mainframe transformation programme.</p></div>
+  <div class="note-box warn"><h3>What still needs validation</h3><p>Internal application counts, runtime dependency maps, MIPS and licensing baselines, hidden regional duplication, actual production latency and transformation budgets are not public. These are Wave 0 discovery items, not facts to assume.</p></div>
+ </div>
+</section>
+
+<section class="section shell" id="context">
+ <div class="section-head"><div><div class="section-num">02 / Strategic context</div><h2>Build on DBS's own transformation journey.</h2></div><p class="section-intro">The blueprint is positioned as the next chapter in a multi-year shift - not a replacement for work already underway.</p></div>
+ <div class="timeline">
+  <div class="time-step"><b>Pre-2014 to 2016</b><span>Digital foundation, insourced engineering, core IT modernisation and digital value capture.</span></div>
+  <div class="time-step"><b>2017 to 2020</b><span>Digital to the Core, APIs, cloud-native services and platform-aligned teams.</span></div>
+  <div class="time-step"><b>2021 to 2023</b><span>Enterprise platforms, data/AI industrialisation and large-scale customer journeys.</span></div>
+  <div class="time-step"><b>2021 to 2025</b><span>Resilience reset after service disruptions, with stronger risk and change controls.</span></div>
+  <div class="time-step"><b>2025 to 2026+</b><span>Tech Future Town, R.I.S.E., mainframe transformation, regional re-platforming and Agentic AI governance.</span></div>
+ </div>
+ <div class="grid two">
+  <div class="card"><span class="tag fact">Published strategic frame</span><h3>Tech Future Town + R.I.S.E.</h3><p>Resiliency, Innovation, Security and Efficiency provide the strategic lens. The report recommends using them as decision criteria for every portfolio disposition, architecture decision and migration gate.</p></div>
+  <div class="card"><span class="tag fact">Regulatory context</span><h3>Regulatory capital is still a signal.</h3><p>MAS reduced the operational-risk multiplier from 1.8x to 1.5x on 4 November 2026. The remaining surcharge reinforces the need for continued control maturity and safe execution.</p></div>
+ </div>
+ <div class="statband">
+  <div class="item"><b>33+</b><span>technology platforms referenced in the report's EA context</span></div>
+  <div class="item"><b>64,000</b><span>code releases/month reported in 2022 during DBS's digital scale-up</span></div>
+  <div class="item"><b>&gt;2,000</b><span>classic AI/ML models reported by the bank</span></div>
+  <div class="item"><b>430+</b><span>AI use cases referenced in the 2025 value narrative</span></div>
+ </div>
+ <p class="source-note">The report notes that the approximately SGD 1 billion AI economic-value figure for 2025 combines revenue uplift, productivity/cost avoidance and losses averted; it should not be described as pure P&amp;L cost savings.</p>
+</section>
+
+<section class="section shell" id="portfolio">
+ <div class="section-head"><div><div class="section-num">03 / Portfolio discipline</div><h2>Know the estate before changing it.</h2></div><p class="section-intro">The first management problem is incomplete portfolio and dependency visibility. The proposed 20-attribute register becomes the baseline for all later decisions.</p></div>
+ <div class="grid two">
+  <div class="card"><h3>Business capabilities to protect first</h3><p>Domestic and cross-border payments; core deposits and account servicing; wealth management; enterprise data and AI; critical risk and resilience services.</p></div>
+  <div class="card"><h3>Portfolio register should join four views</h3><p>Business ownership and criticality, application lifecycle and technical health, runtime dependencies, and operating / financial cost - with attestation by business and technology owners.</p></div>
+ </div>
+ <div class="diagram">
+  <div class="diagram-title">Seven-gate application disposition logic</div>
+  <svg viewBox="0 0 950 240" role="img" aria-label="Seven decision gates lead to six application rationalisation dispositions">
+   <defs><marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="var(--accent)"/></marker></defs>
+   <g font-family="Arial" text-anchor="middle">
+    <g fill="var(--surface2)" stroke="var(--line)"><rect x="14" y="18" width="122" height="48" rx="9"/><rect x="150" y="18" width="122" height="48" rx="9"/><rect x="286" y="18" width="122" height="48" rx="9"/><rect x="422" y="18" width="122" height="48" rx="9"/><rect x="558" y="18" width="122" height="48" rx="9"/><rect x="694" y="18" width="110" height="48" rx="9"/><rect x="818" y="18" width="118" height="48" rx="9"/></g>
+    <g fill="var(--accent)" font-size="10" font-weight="700"><text x="75" y="37">GATE 1</text><text x="211" y="37">GATE 2</text><text x="347" y="37">GATE 3</text><text x="483" y="37">GATE 4</text><text x="619" y="37">GATE 5</text><text x="749" y="37">GATE 6</text><text x="877" y="37">GATE 7</text></g>
+    <g fill="var(--ink)" font-size="9"><text x="75" y="53">Business value?</text><text x="211" y="53">Redundant?</text><text x="347" y="53">Can retain?</text><text x="483" y="53">EOSL / runtime?</text><text x="619" y="53">Safe hosting?</text><text x="749" y="53">Need redesign?</text><text x="877" y="53">Replace better?</text></g>
+    <path d="M136 42 H149 M272 42 H285 M408 42 H421 M544 42 H557 M680 42 H693 M804 42 H817" stroke="var(--accent)" stroke-width="2" marker-end="url(#arr)" fill="none"/>
+    <path d="M475 67 V104 H475" stroke="var(--accent)" stroke-width="2" fill="none"/>
+    <rect x="55" y="111" width="840" height="35" rx="10" fill="var(--surface2)" stroke="var(--accent)"/>
+    <text x="475" y="133" fill="var(--ink)" font-size="12" font-weight="700">Choose the disposition that best fits business value, technical condition, coupling and risk</text>
+    <g fill="var(--surface2)" stroke="var(--line)"><rect x="16" y="174" width="140" height="46" rx="9"/><rect x="171" y="174" width="140" height="46" rx="9"/><rect x="326" y="174" width="140" height="46" rx="9"/><rect x="481" y="174" width="140" height="46" rx="9"/><rect x="636" y="174" width="140" height="46" rx="9"/><rect x="791" y="174" width="140" height="46" rx="9"/></g>
+    <g fill="var(--accent)" font-size="10" font-weight="700"><text x="86" y="202">RETAIN</text><text x="241" y="202">RETIRE</text><text x="396" y="202">REHOST</text><text x="551" y="202">REPLATFORM</text><text x="706" y="202">REFACTOR</text><text x="861" y="202">REPLACE</text></g>
+    <path d="M475 146 V161 H86 V173 M475 161 H861 V173 M241 161 V173 M396 161 V173 M551 161 V173 M706 161 V173" stroke="var(--accent)" stroke-width="1.4" fill="none" opacity=".7"/>
+   </g>
+  </svg>
+  <p class="diagram-caption">The six dispositions are supported by seven decision gates. Decisions require documented rationale, risk review and audit trail; replacement is not the default end-state.</p>
+ </div>
+ <div class="option-grid">
+  <div class="option"><b>01 / Retain</b><h3>Keep what is sound</h3><p>Preserve business-critical applications with acceptable cost, resilience and lifecycle posture.</p></div>
+  <div class="option"><b>02 / Retire</b><h3>Remove duplication</h3><p>Decommission redundant applications only after usage, records and dependencies are verified.</p></div>
+  <div class="option"><b>03 / Rehost</b><h3>Move the runtime</h3><p>Shift workloads with minimal code change where infrastructure exit is the primary driver.</p></div>
+  <div class="option"><b>04 / Replatform</b><h3>Upgrade the platform</h3><p>Change database, runtime or middleware while preserving core business logic.</p></div>
+  <div class="option"><b>05 / Refactor</b><h3>Reshape the capability</h3><p>Incrementally modularise high-change domains through a Strangler Fig approach.</p></div>
+  <div class="option"><b>06 / Replace</b><h3>Buy or rebuild selectively</h3><p>Proceed only where economics, control, regulatory fit and exitability justify it.</p></div>
+ </div>
+</section>
+
+<section class="section shell" id="mainframe">
+ <div class="section-head"><div><div class="section-num">04 / Mainframe strategy</div><h2>Three speeds. No big bang.</h2></div><p class="section-intro">The report rejects an all-at-once core replacement. Workloads should be classified by coupling intensity, batch vs. real-time behaviour, business differentiation and failure consequence.</p></div>
+ <div class="strategy-flow">
+  <div class="flow-card"><span class="step">SPEED 01 / NEAR TERM</span><h3>Retain &amp; optimise</h3><p>Keep authoritative ledger posting stable. Offload high-frequency balance and enquiry reads to CDC-fed caches, tune batch windows and remove avoidable MIPS spikes.</p></div>
+  <div class="flow-card"><span class="step">SPEED 02 / TARGETED</span><h3>Replatform</h3><p>Move end-of-support runtimes, middleware and bounded batch workloads to supported infrastructure while preserving proven business logic.</p></div>
+  <div class="flow-card"><span class="step">SPEED 03 / SELECTIVE</span><h3>Strangler Fig refactor</h3><p>Incrementally extract high-change payment and enquiry logic into domain services, leaving the authoritative ledger in place until reconciliation and failover are proven.</p></div>
+ </div>
+ <div class="diagram">
+  <div class="diagram-title">Mainframe workload decision matrix</div>
+  <svg viewBox="0 0 900 340" role="img" aria-label="Matrix of business differentiation versus coupling intensity for mainframe workload treatment">
+   <rect x="100" y="24" width="700" height="260" rx="12" fill="var(--surface2)" stroke="var(--line)"/>
+   <path d="M450 24 V284 M100 154 H800" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="5 5"/>
+   <g font-family="Arial" fill="var(--muted)" font-size="11"><text x="450" y="323" text-anchor="middle">BUSINESS DIFFERENTIATION  →</text><text x="24" y="156" transform="rotate(-90 24 156)" text-anchor="middle">COUPLING / MIGRATION RISK  →</text><text x="110" y="305">Lower</text><text x="772" y="305">Higher</text></g>
+   <g font-family="Arial" font-size="12" text-anchor="middle"><text x="275" y="50" fill="var(--accent)" font-weight="700">CONTROLLED REPLATFORM</text><text x="275" y="71" fill="var(--muted)" font-size="10">bounded batch / EOSL runtime</text><text x="625" y="50" fill="var(--gold)" font-weight="700">RETAIN + OFFLOAD</text><text x="625" y="71" fill="var(--muted)" font-size="10">authoritative core ledger</text><text x="275" y="182" fill="var(--muted)" font-weight="700">RETIRE / REHOST</text><text x="275" y="202" fill="var(--muted)" font-size="10">commodity / duplicated workloads</text><text x="625" y="182" fill="var(--accent2)" font-weight="700">STRANGLER FIG</text><text x="625" y="202" fill="var(--muted)" font-size="10">high-change payment / enquiry logic</text></g>
+   <g fill="var(--accent)" opacity=".15"><circle cx="625" cy="108" r="34"/><circle cx="625" cy="108" r="20"/></g><g fill="var(--accent2)" opacity=".2"><circle cx="625" cy="235" r="36"/></g>
+   <path d="M450 24 V284 M100 154 H800" stroke="var(--line)"/>
+  </svg>
+  <p class="diagram-caption">Illustrative decision logic from the report: exact placement requires workload profiling, application dependency validation, MIPS telemetry and business-owner confirmation.</p>
+ </div>
+ <div class="callout"><strong>Sequence matters:</strong> read-query offload first to relieve peak MIPS pressure; targeted replatforming next for unsupported infrastructure; selective refactoring for domains where agility and differentiation justify the added coexistence complexity.</div>
+</section>
+
+<section class="section shell" id="architecture">
+ <div class="section-head"><div><div class="section-num">05 / Target architecture</div><h2>A composable architecture that coexists by design.</h2></div><p class="section-intro">The proposed target state combines TOGAF 10 and BIAN-aligned business services with API/event integration, domain-owned data, hybrid infrastructure and cross-cutting controls.</p></div>
+ <div class="architecture">
+  <div class="arch-row"><div class="layer-name">01 / Experience</div><div class="layer-content"><strong>Digital channels and journeys:</strong> digibank, PayLah!, DBS IDEAL, partner channels, branch and ATM fallback; channel-specific backend-for-frontend facades.</div><div class="layer-purpose">Isolate channel faults</div></div>
+  <div class="arch-row"><div class="layer-name">02 / Journey</div><div class="layer-content"><strong>Orchestration and assisted journeys:</strong> journey orchestration, GenAI and Agentic UX routed through governed agent controls.</div><div class="layer-purpose">Consistent customer journey</div></div>
+  <div class="arch-row"><div class="layer-name">03 / Integration</div><div class="layer-content"><strong>API gateway, event broker and service mesh:</strong> mTLS, rate limits, circuit breakers, idempotency keys, retries and semantic versioning.</div><div class="layer-purpose">Resilient service contracts</div></div>
+  <div class="arch-row"><div class="layer-name">04 / Domain</div><div class="layer-content"><strong>BIAN-aligned services:</strong> Payment Execution, Current Account Servicing, Position Keeping, Credit Evaluation, Wealth and Trade services.</div><div class="layer-purpose">Single-domain ownership</div></div>
+  <div class="arch-row"><div class="layer-name">05 / Core</div><div class="layer-content"><strong>Controlled coexistence:</strong> cloud-native modules operate alongside retained/optimised mainframe ledgers, linked through Anti-Corruption Layer adapters.</div><div class="layer-purpose">Protect ledger authority</div></div>
+  <div class="arch-row"><div class="layer-name">06 / Data</div><div class="layer-content"><strong>CDC, federated MDM and reconciliation:</strong> domain data ownership, ADA/ALAN analytics, data lineage and three-way reconciliation.</div><div class="layer-purpose">Prevent data / balance drift</div></div>
+  <div class="arch-row"><div class="layer-name">07 / Platform</div><div class="layer-content"><strong>Hybrid infrastructure:</strong> optimised mainframe, private/public cloud, Kubernetes, Terraform IaC, active-active and hot-standby DR.</div><div class="layer-purpose">Portable and recoverable</div></div>
+ </div>
+ <div class="grid two" style="margin-top:12px">
+  <div class="cross-cut">LEFT CROSS-CUT: ZERO TRUST / IDENTITY / PRIVACY / MAS FSM-N05 &amp; FSM-N06</div>
+  <div class="cross-cut">RIGHT CROSS-CUT: PREDICT / PREVENT / DETECT / RECOVER / EA GOVERNANCE</div>
+ </div>
+ <div class="callout"><strong>Three-way reconciliation:</strong> compare source record count/hash, target record count/hash and general-ledger balance. Financial mutations must be idempotent so retries cannot double-debit accounts.</div>
+</section>
+
+<section class="section shell" id="resilience">
+ <div class="section-head"><div><div class="section-num">06 / Resilience by design</div><h2>Migration is a controlled risk event.</h2></div><p class="section-intro">The DBS Predict, Prevent, Detect, Recover framework should operate through every migration gate, not as a compliance checklist after delivery.</p></div>
+ <div class="grid four">
+  <div class="card"><span class="tag fact">01 / Predict</span><h3>See the blast radius</h3><p>Runtime dependency graphs, capacity forecasts under 3x peak load, failure-mode analysis and critical-journey mapping.</p></div>
+  <div class="card"><span class="tag fact">02 / Prevent</span><h3>Make unsafe change hard</h3><p>Immutable infrastructure as code, automated policy gates, near-production test environments, contract testing and independent QA.</p></div>
+  <div class="card"><span class="tag fact">03 / Detect</span><h3>Observe the customer journey</h3><p>Distributed traces, synthetic probes every 60 seconds, real-time reconciliation alerts and centralised incident command.</p></div>
+  <div class="card"><span class="tag fact">04 / Recover</span><h3>Prove the escape route</h3><p>Rehearsed sub-15-minute rollback for Strangler facades, realistic DR flips, alternate channels and independent recovery zones.</p></div>
+ </div>
+ <div class="statband">
+  <div class="item"><b>≤2 hrs</b><span>DBS target for recovery of three key services (report cites public commitment)</span></div>
+  <div class="item"><b>≤4 hrs</b><span>MAS critical-system recovery ceiling cited in the report</span></div>
+  <div class="item"><b>0 variance</b><span>Financial reconciliation before production cutover</span></div>
+  <div class="item"><b>3 cycles</b><span>Zero-variance reconciliation across three business cycles at core gate</span></div>
+ </div>
+ <div class="table-wrap"><table><thead><tr><th>Gate control</th><th>Minimum evidence</th><th>Decision owner</th></tr></thead><tbody>
+  <tr><td><strong>Before migration</strong></td><td>Attested dependencies, capacity/peak tests, security and DR design, data lineage and rollback rehearsal.</td><td>Architecture Review Board, CISO / Risk</td></tr>
+  <tr><td><strong>Before cutover</strong></td><td>UAT and penetration testing pass; three-way reconciliation at zero variance; parallel-run evidence.</td><td>CIO + Business Unit + CRO + CFO</td></tr>
+  <tr><td><strong>After cutover</strong></td><td>Customer-journey health, error budgets, incident trends, reconciled financial records and rollback readiness.</td><td>Service owner / SRE / Operations</td></tr>
+  <tr><td><strong>Before decommission</strong></td><td>30-day zero-traffic confirmation, statutory record archive, vendor exit and benefit validation.</td><td>CFO + CIO + Business owner</td></tr>
+ </tbody></table></div>
+</section>
+
+<section class="section shell" id="businesscase">
+ <div class="section-head"><div><div class="section-num">07 / Financial case</div><h2>Make the economics auditable.</h2></div><p class="section-intro">The report models a five-year programme using illustrative Tier-1 banking benchmarks. Benefits are split between direct cash/P&amp;L impact and risk-adjusted strategic value.</p></div>
+ <div class="callout"><strong>Important:</strong> these are illustrative model outputs, not DBS-approved budgets, published savings or management guidance. Internal MIPS costs, cloud rates, app counts and vendor contracts must replace assumptions during discovery.</div>
+ <div class="grid three">
+  <div class="card kpi-card"><div class="value">SGD 270M</div><div class="label">Base Case 5-year TCO</div><div class="detail">SGD 180M transformation CAPEX + SGD 90M incremental recurring / dual-run OPEX</div></div>
+  <div class="card kpi-card"><div class="value">SGD 469M</div><div class="label">Base Case total benefits</div><div class="detail">SGD 334M direct + SGD 135M risk-adjusted / strategic</div></div>
+  <div class="card kpi-card"><div class="value">SGD 122.36M</div><div class="label">Base Case NPV at 8%</div><div class="detail">73.7% total ROI · 3.42-year combined payback</div></div>
+ </div>
+ <div class="diagram">
+  <div class="diagram-title">Three-scenario business case | SGD millions</div>
+  <div class="bars">
+   <div class="bar-row"><span>Best benefits</span><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-value">580</span></div>
+   <div class="bar-row"><span>Base benefits</span><div class="bar-track"><div class="bar-fill alt" style="width:80.9%"></div></div><span class="bar-value">469</span></div>
+   <div class="bar-row"><span>Worst benefits</span><div class="bar-track"><div class="bar-fill gold" style="width:54.7%"></div></div><span class="bar-value">317</span></div>
+  </div>
+  <div class="bars">
+   <div class="bar-row"><span>Best TCO</span><div class="bar-track"><div class="bar-fill" style="width:40.2%"></div></div><span class="bar-value">233</span></div>
+   <div class="bar-row"><span>Base TCO</span><div class="bar-track"><div class="bar-fill alt" style="width:46.6%"></div></div><span class="bar-value">270</span></div>
+   <div class="bar-row"><span>Worst TCO</span><div class="bar-track"><div class="bar-fill gold" style="width:60.3%"></div></div><span class="bar-value">350</span></div>
+  </div>
+  <p class="diagram-caption">Bars are scaled to the largest benefit value (580) and largest cost value (350) within their respective groups.</p>
+ </div>
+ <div class="table-wrap"><table><thead><tr><th>Metric (SGD M unless noted)</th><th>Best case</th><th>Base case</th><th>Worst case</th></tr></thead><tbody>
+  <tr><td>Transformation CAPEX</td><td>158</td><td>180</td><td>230</td></tr>
+  <tr><td>Recurring / dual-run OPEX</td><td>75</td><td>90</td><td>120</td></tr>
+  <tr><td><strong>5-year TCO</strong></td><td><strong>233</strong></td><td><strong>270</strong></td><td><strong>350</strong></td></tr>
+  <tr><td>Direct financial benefits</td><td>410</td><td>334</td><td>224</td></tr>
+  <tr><td>Risk-adjusted / strategic benefits</td><td>170</td><td>135</td><td>93</td></tr>
+  <tr><td><strong>Total benefits</strong></td><td><strong>580</strong></td><td><strong>469</strong></td><td><strong>317</strong></td></tr>
+  <tr><td>Total ROI</td><td>148.9%</td><td>73.7%</td><td>-9.4%</td></tr>
+  <tr><td>NPV at 8%</td><td>238.68</td><td>122.36</td><td>-61.58</td></tr>
+  <tr><td>Combined payback</td><td>2.56 years</td><td>3.42 years</td><td>&gt;5 years</td></tr>
+ </tbody></table></div>
+ <div class="two-col-note">
+  <div class="note-box good"><h3>Direct-only case still positive</h3><p>In the Base Case, direct benefits alone produce 23.7% ROI, SGD 19.19M NPV and 4.32-year payback. This gives Finance a harder, less assumption-sensitive view.</p></div>
+  <div class="note-box warn"><h3>Dual-run is the value leak</h3><p>The downside case combines a 28% CAPEX overrun, nine-month delay and prolonged dual-run. The model turns negative, making decommissioning gates and schedule discipline essential.</p></div>
+ </div>
+ <div class="diagram">
+  <div class="diagram-title">Base case total combined net cash flow | SGD M</div>
+  <svg viewBox="0 0 880 250" role="img" aria-label="Base case annual net cash flow profile from year zero through year five">
+   <line x1="60" y1="164" x2="830" y2="164" stroke="var(--muted)" stroke-width="1.2"/>
+   <g font-family="Arial" font-size="11" text-anchor="middle" fill="var(--muted)"><text x="118" y="235">Y0</text><text x="260" y="235">Y1</text><text x="402" y="235">Y2</text><text x="544" y="235">Y3</text><text x="686" y="235">Y4</text><text x="810" y="235">Y5</text></g>
+   <g><rect x="80" y="164" width="76" height="29" rx="5" fill="var(--red)"/><rect x="222" y="164" width="76" height="36" rx="5" fill="var(--red)"/><rect x="364" y="164" width="76" height="11" rx="5" fill="var(--red)"/><rect x="506" y="127" width="76" height="37" rx="5" fill="var(--accent)"/><rect x="648" y="72" width="76" height="92" rx="5" fill="var(--accent)"/><rect x="772" y="54" width="76" height="110" rx="5" fill="var(--accent)"/></g>
+   <g font-family="Arial" font-size="12" font-weight="700" text-anchor="middle" fill="var(--ink)"><text x="118" y="208">-35</text><text x="260" y="215">-44</text><text x="402" y="190">-13</text><text x="544" y="117">+45</text><text x="686" y="62">+112</text><text x="810" y="44">+134</text></g>
+   <text x="445" y="19" fill="var(--muted)" font-size="10" text-anchor="middle" letter-spacing="1.4">INVESTMENT PHASE → BENEFIT REALISATION</text>
+  </svg>
+  <p class="diagram-caption">The report's Base Case yearly net cash flow: Y0 -35, Y1 -44, Y2 -13, Y3 +45, Y4 +112 and Y5 +134. Cumulative net cash flow ends at SGD 199M.</p>
+ </div>
+</section>
+
+<section class="section shell" id="governance">
+ <div class="section-head"><div><div class="section-num">08 / Business analysis & governance</div><h2>Turn architecture strategy into control artefacts.</h2></div><p class="section-intro">The proposal includes a structured requirements and governance suite so portfolio and migration decisions remain traceable from business objective to tested control.</p></div>
+ <div class="grid four">
+  <div class="card kpi-card"><div class="value">20</div><div class="label">Functional requirements</div><div class="detail">Portfolio, dependencies, migration, reconciliation, governance and approvals</div></div>
+  <div class="card kpi-card"><div class="value">14</div><div class="label">Non-functional requirements</div><div class="detail">Resilience, security, performance, observability and recoverability</div></div>
+  <div class="card kpi-card"><div class="value">22</div><div class="label">Role-specific user stories</div><div class="detail">Given-When-Then acceptance criteria</div></div>
+  <div class="card kpi-card"><div class="value">14</div><div class="label">UAT scenarios</div><div class="detail">Proposed testing and acceptance plan</div></div>
+ </div>
+ <div class="table-wrap"><table><thead><tr><th>BA artefact</th><th>What it enables</th><th>Control point</th></tr></thead><tbody>
+  <tr><td><strong>Application Portfolio Register</strong></td><td>20-attribute inventory with business and technical owners, lifecycle status, cost and dependencies.</td><td>Attestation and completeness</td></tr>
+  <tr><td><strong>Disposition Matrix &amp; dependency register</strong></td><td>Six rationalisation choices, seven decision gates and runtime-validated dependency graphs.</td><td>ARB approval / exception log</td></tr>
+  <tr><td><strong>BRD / NFR register</strong></td><td>20 functional and 14 non-functional requirements mapped to programme objectives.</td><td>Version control and sign-off</td></tr>
+  <tr><td><strong>User stories / RTM</strong></td><td>22 role-based stories and traceability from objective to requirement, test and release evidence.</td><td>Coverage and change impact</td></tr>
+  <tr><td><strong>ADR operating model</strong></td><td>Document design decisions, alternatives, rationale, risk, approvals and time-bound exceptions.</td><td>Architecture Review Board</td></tr>
+  <tr><td><strong>KPI / risk / assumptions</strong></td><td>Measure delivery, resilience, service, cost, benefits and unresolved discovery assumptions.</td><td>Executive dashboard / risk forum</td></tr>
+  <tr><td><strong>UAT and migration evidence</strong></td><td>14 proposed UAT scenarios for financial, security, performance, DR and rollback checks.</td><td>Go / no-go and cutover sign-off</td></tr>
+ </tbody></table></div>
+ <div class="grid three">
+  <div class="card"><h3>Board oversight</h3><p>Board Technology Committee: quarterly strategic oversight of risk appetite, vendor concentration and regulatory alignment.</p></div>
+  <div class="card"><h3>Executive steering</h3><p>Group CIO-chaired Steering Committee with CFO, CRO, business heads and operations: monthly funding and wave-gate decisions.</p></div>
+  <div class="card"><h3>Architecture &amp; assurance</h3><p>ARB and Centres of Excellence approve standards and exceptions; PMO, EASRE and Line 2 Risk provide execution and independent assurance.</p></div>
+ </div>
+</section>
+
+<section class="section shell" id="roadmap">
+ <div class="section-head"><div><div class="section-num">09 / Execution roadmap</div><h2>90 days to evidence. Then four gated waves.</h2></div><p class="section-intro">No multi-year capital commitment should be locked before internal application, dependency, MIPS, cloud and risk baselines have been validated.</p></div>
+ <div class="timeline">
+  <div class="time-step"><b>Days 1–30</b><span>Understand and assess: interviews, CMDB/APM traces, MIPS telemetry, 20-attribute inventory and risk baseline.</span></div>
+  <div class="time-step"><b>Days 31–60</b><span>Design and prioritise: 6R workshops, workload classification, target architecture, ADRs, financial model and BRD/RTM.</span></div>
+  <div class="time-step"><b>Days 61–90</b><span>Validate and present: regional stakeholder validation, UAT and rollback plan, stress-test assumptions, secure BTC go-ahead.</span></div>
+ </div>
+ <div class="roadmap">
+  <div class="wave"><div class="duration">Wave 0 · Months 1–6 after discovery</div><h3>Foundation &amp; governance</h3><p>Complete application and runtime dependency inventory; establish ARB/ADR governance; ratify API, event, Zero Trust and IaC standards; build cloud landing zones and three-way reconciliation engine; profile MIPS/workloads.</p><div class="gate">Gate G0: full Tier-1/2 owner attestation, no unmapped critical dependencies, security and DR readiness.</div></div>
+  <div class="wave"><div class="duration">Wave 1 · Months 6–15</div><h3>Low-risk modernisation</h3><p>Retire initial duplicate regional applications; offload read-only balance enquiries through CDC caches; standardise API gateway and legacy adapters; rehost/replatform Tier-2 EOSL applications; extend observability.</p><div class="gate">Gate G1: 3x peak load tests, zero-variance reconciliation, clean low-risk retirement and no Sev-1 incidents.</div></div>
+  <div class="wave"><div class="duration">Wave 2 · Months 12–30</div><h3>Critical core &amp; mainframe</h3><p>Incrementally modularise domestic/cross-border payment slices; replatform selected transaction and batch workloads; run 3–6 month parallel shadow cycles; execute canary cutovers with rollback assurance.</p><div class="gate">Gate G2/G3: 100% UAT and pen-test pass, zero-variance across 3 business cycles, DR flip ≤2 hours and CIO/BU/CRO/CFO sign-off.</div></div>
+  <div class="wave"><div class="duration">Wave 3 · Months 24–42</div><h3>Regional scale &amp; harvest</h3><p>Reuse validated Singapore patterns in Hong Kong, Taiwan, India and Indonesia within local data-residency boundaries; decommission legacy systems; step down MIPS/vendor contracts; embed FinOps.</p><div class="gate">Gate G4: 30-day zero-traffic confirmation, archives complete, legacy licences terminated and ≥95% benefit capture verified by CFO.</div></div>
+ </div>
+</section>
+
+<section class="section shell" id="recommendations">
+ <div class="section-head"><div><div class="section-num">10 / Leadership agenda</div><h2>Eight decisions to start with.</h2></div><p class="section-intro">The report's ranked recommendations favour evidence-led, reversible steps before critical-core transformation.</p></div>
+ <div class="decisions">
+  <div class="decision"><div><strong>Mandate a runtime-verified portfolio baseline.</strong><p>Reconcile CMDB and declared inventories with APM/network traces across all Tier-1 journeys. Make this the entry condition for major migration.</p></div></div>
+  <div class="decision"><div><strong>Adopt the three-speed mainframe strategy.</strong><p>Offload enquiry traffic, replatform bounded end-of-support workloads and refactor high-change domains incrementally - while protecting authoritative ledgers.</p></div></div>
+  <div class="decision"><div><strong>Make three-way financial reconciliation non-negotiable.</strong><p>Require zero variance across multiple business cycles before cutover and before decommissioning.</p></div></div>
+  <div class="decision"><div><strong>Establish an enforceable API / event / Zero Trust golden path.</strong><p>Standardise idempotency, semantic versioning, circuit breakers, event dead-letter handling, mTLS and least-privilege access.</p></div></div>
+  <div class="decision"><div><strong>Embed Predict-Prevent-Detect-Recover into every wave.</strong><p>Prove rollback, failover, synthetic journey monitoring, observability and independent risk sign-off at each gate.</p></div></div>
+  <div class="decision"><div><strong>Use Finance-validated economics to release capital.</strong><p>Replace illustrative MIPS, cloud and vendor assumptions with extracted baselines; track direct benefits separately from risk-adjusted benefits.</p></div></div>
+  <div class="decision"><div><strong>Strengthen executive and architecture decision rights.</strong><p>Use BTC oversight, CIO-chaired steering, ARB/ADRs, EASRE independent QA and CRO/Line 2 review for high-risk exceptions.</p></div></div>
+  <div class="decision"><div><strong>Prove Singapore patterns before regional reuse.</strong><p>Scale to Hong Kong, Taiwan, India and Indonesia only after proving data residency, operating model and recovery patterns locally.</p></div></div>
+ </div>
+ <div class="risk-grid" style="margin-top:28px">
+  <div class="risk"><b>Hidden dependencies and blast radius</b><span>Mitigation: runtime discovery, service maps, contract testing and critical-path attestation.</span></div>
+  <div class="risk"><b>Extended dual-run cost</b><span>Mitigation: hard decommissioning criteria, accountable owners and benefit tracking.</span></div>
+  <div class="risk"><b>Financial or data integrity drift</b><span>Mitigation: three-way reconciliation, idempotency and zero-variance cutover gates.</span></div>
+  <div class="risk"><b>Vendor and regional concentration</b><span>Mitigation: exitability clauses, workload placement standards and local regulatory validation.</span></div>
+ </div>
+</section>
+
+<section class="section shell" id="conclusion">
+ <div class="endcap">
+  <div class="eyebrow">The management proposition</div>
+  <h2>Change the parts that need to change.<br>Protect the things customers rely on.</h2>
+  <p>DBS's modernisation opportunity is to reduce legacy cost and complexity without recreating the operational risk that the bank has spent years addressing. A runtime-verified portfolio, workload-specific migration, composable coexistence architecture, hard reconciliation and recovery gates, and CFO-led benefit validation provide a disciplined route from Tech Future Town ambition to measurable enterprise outcomes.</p>
+  <p><strong style="color:var(--accent)">The first approval should be for the 90-Day Discovery Programme - not a blanket core replacement.</strong></p>
+ </div>
+ <div class="source-note"><strong>Basis and limitations.</strong> This summary is based on the uploaded 119-page DBS enterprise architecture and core modernisation report, with a data vintage of November 2026. Publicly disclosed facts, analytical recommendations, illustrative assumptions and data gaps are kept distinct. The financial model is illustrative. Internal application inventory, MIPS, contracts, latency baselines and transformation budgets require internal validation. The proposed architecture and roadmaps are advisory concepts, not claims about DBS's confidential implementation details.</div>
+</section>
+</main>
+<footer class="footer"><div class="shell">DBS Bank · Enterprise Architecture &amp; Core Modernisation · Executive summary · November 2026 data vintage</div></footer>
+<a class="backtop" href="#top">↑ Back to top</a>
+<script>
+(function(){
+ const buttons=[...document.querySelectorAll('[data-theme-choice]')];
+ function setTheme(name){document.documentElement.setAttribute('data-theme',name);buttons.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.themeChoice===name)));try{localStorage.setItem('dbs-theme',name)}catch(e){}}
+ buttons.forEach(b=>b.addEventListener('click',()=>setTheme(b.dataset.themeChoice)));
+ try{const saved=localStorage.getItem('dbs-theme');if(saved&&['midnight','paper','blueprint','plum'].includes(saved))setTheme(saved)}catch(e){}
+})();
+</script>
+</body>
+</html>
